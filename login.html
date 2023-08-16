@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- <html> -->
+    <head>
+        <title>
+            Login
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <div class="card" style="margin: auto; width: 20rem; display: flex; justify-content: center;">
+            <img class="card-img-top" src="../web/images/loginimage.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p>Login to BidBuddy</p>
+                <input class="form-control" type="text" id="username" placeholder="Username">
+                <p id="usernameError"></p>
+                <input class="form-control" type="password" id="userpass" placeholder="Password">
+                <p id="userpassError"></p>
+                <button class="btn btn-primary" id="loginButton">Login</button> 
+            </div>
+          </div>
+        
+        <script>
+            const username = document.getElementById("username");
+            const usernameError = document.getElementById("usernameError");
+            const userpass = document.getElementById("userpass");
+            const userpassError = document.getElementById("userpassError");
+            const loginButton = document.getElementById("loginButton");
+            let usernameflag = false;
+            let userpassflag = false;
+            
+
+            username.addEventListener('input', function(){
+                const usernameValue = username.value;
+                const alphabetsRegex = /^[A-Za-z]+$/;
+                if(alphabetsRegex.test(usernameValue) || (usernameValue.length==0)){
+                    usernameError.innerText = "";
+                    usernameflag = true;
+                }
+                else{
+                    usernameError.innerText = "Username should not contain numbers";
+                    usernameError.style.color = "#FF0000";
+                    usernameflag = false;
+                } 
+                console.log("usernameflag: "+userpassflag);
+            })
+
+            userpass.addEventListener('input', function(){
+                const userpassValue = userpass.value;
+                if((userpassValue.length != 0) && ((userpassValue.length <6) || (userpassValue.length >14))){
+                    userpassError.innerText = "The password length should be between 6 to 14";
+                    userpassError.style.color = "#FF0000";
+                    userpassflag = false;
+                }
+                else{
+                    userpassError.innerText = ""; 
+                    userpassflag = true;
+                }
+                console.log("userpassflag: "+userpassflag);
+            })
+
+            loginButton.addEventListener('click', function(){
+                if(usernameflag && userpassflag){
+                    window.location.href = './index.html'; 
+                }
+                else
+                    alert("Input not valid!")
+            })
+
+        </script>
+    </body>
+<!-- </html> -->
