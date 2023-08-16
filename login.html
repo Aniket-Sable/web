@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .error-message {
+            color: red;
+        }
+        .error-pass{
+            color: red;
+        }
+    </style>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <label for="myTextbox">Username</label>
+    <input type="text" id="myTextbox">
+    <div class="error-message" id="error" style="display: none;">digits are not allowed.</div>
+    <label for="myTextbox">Password</label>
+    <input type="password" id="pass">
+    <div class="error-pass" id="passerror" style="display: none;">Password must be at least 6 char long</div>
+    <button id="submitButton">Submit</button>
+
+    <script>
+        document.getElementById("myTextbox").addEventListener('input', function () {
+            // Get the value of the textbox
+            const uname = document.getElementById("myTextbox").value;
+            
+            const errorDiv = document.getElementById("error");
+            if (/\d/.test(uname)) {
+                errorDiv.style.display = "block";
+            }
+             
+        });
+        document.getElementById("pass").addEventListener('input', function(){
+            const pass = document.getElementById("pass").value;
+            const err = document.getElementById("passerror");
+            if ((pass.length ==0) && (pass.length < 6 || pas.length >14  )) {
+                err.style.display = "block";
+            }
+        })
+    </script>
+</body>
+
+</html>
