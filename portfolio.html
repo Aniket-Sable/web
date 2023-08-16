@@ -42,15 +42,45 @@
 
 
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./buyer">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./seller">Link</a>
-        </li>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Tabbed Content Example</title>
+    <style>
+        /* Your CSS styles go here */
+    </style>
+</head>
+<body>
+
+<div class="tabs">
+    <button class="tablink" onclick="openTab('tab1')">Buyer's</button>
+    <button class="tablink" onclick="openTab('tab2')">Seller's</button>
+    <!-- Add more tab buttons as needed -->
+
+    <div id="tab1" class="tabcontent">
         
-      </ul>
+    </div>
+
+    <div id="tab2" class="tabcontent">
+       
+    </div>
+    <!-- Add more tab content sections as needed -->
+</div>
+
+<script>
+    function openTab(tabName) {
+        var i;
+        var tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+</script>
+
+</body>
+</html>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
